@@ -10,10 +10,7 @@ export class UsersRepository {
     return this.prismaService.user.create(createDto);
   }
 
-  findByEmail(email: string) {
-    return this.prismaService.user.findUnique({
-      where: { email },
-      select: { id: true },
-    });
+  findByEmail(findUniqueDto: Prisma.UserFindUniqueArgs) {
+    return this.prismaService.user.findUnique(findUniqueDto);
   }
 }
