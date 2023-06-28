@@ -6,6 +6,12 @@ export class UsersService {
   constructor(private readonly usersRepo: UsersRepository) {}
 
   getUserById(userId: string) {
-    throw new Error('Method not implemented.');
+    return this.usersRepo.findUnique({
+      where: { id: userId },
+      select: {
+        name: true,
+        email: true,
+      },
+    });
   }
 }
