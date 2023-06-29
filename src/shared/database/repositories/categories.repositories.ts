@@ -6,7 +6,11 @@ import { type Prisma } from '@prisma/client';
 export class CategoriesRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
-  findMany(findMany: Prisma.CategoryFindManyArgs) {
-    return this.prismaService.category.findMany(findMany);
+  findFirst(findFirstDto: Prisma.CategoryFindFirstArgs) {
+    return this.prismaService.category.findFirst(findFirstDto);
+  }
+
+  findMany(findManyDto: Prisma.CategoryFindManyArgs) {
+    return this.prismaService.category.findMany(findManyDto);
   }
 }
